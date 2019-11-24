@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Quiz Results</title>
+</head>
+
+<body>
+
+{% for message in get_flashed_messages() %}
+ <div class=flash>{{ message }}</div>
+ {% endfor %}
+
+ <h1>Add Quiz Results to Database</h1>
+
+ <form action="/results/add" method="post">
+  <p>Enter Student ID: <input type="text" name="student_id">
+     Enter Quiz ID: <input type="text" name="quiz_id"> Enter Quiz Score: <input type="text" name="score"></P>
+  <input type="submit" value="Enter">
+ </form>
+
+
+ <div><a href="/dashboard">Dashboard</a></div>
+ <div><a href="/student/add">Add Student</a></div>
+ <div><a href="/quiz/add">Add Quiz</a></div>
+
+ <form action="/logout">
+ <input type="submit" value="Log Off">
+ </form>
+
+</body>
+</html>

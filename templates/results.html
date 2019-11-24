@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Student Results</title>
+
+</head>
+
+<body>
+
+ {% for message in get_flashed_messages() %}
+ <div class=flash>{{ message }}</div>
+ {% endfor %}
+
+ <h1>Quiz results for {{ student_name }}</h1>
+
+ <table name="results" border = "1">
+  <tr>
+  <th colspan="2" style="text-align: center">Student Quiz Results</th>
+  </tr>
+  <tr>
+  <th>Quiz ID</th><th>Score</th>
+  </tr>
+  {% for result in results %}
+  <tr>
+  <td>{{ result.quiz_id }}</td><td>{{ result.score }}</td>
+  </tr>
+  {% else %}
+  <tr>No Quizzes Entered</tr>
+  {% endfor %}
+ </table>
+
+
+ <div><a href="/dashboard">Dashboard</a></div>
+ <div><a href="/student/add">Add Student</a></div>
+ <div><a href="/quiz/add">Add Quiz</a></div>
+
+ <form action="/logout">
+ <input type="submit" value="Log Off">
+ </form>
+
+</body>
+</html>
